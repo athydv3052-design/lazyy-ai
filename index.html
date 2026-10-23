@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f8f2">
+  <title>LazyMate AI — Work Less. Live More.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#home"><span class="brand-icon">🦥</span><span><strong>LazyMate <em>AI</em></strong><small>Work Less. Live More.</small></span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+      <a class="nav-link active" href="#home">⌂ <span>Home</span></a>
+      <a class="nav-link" href="#notes">▤ <span>Smart Notes</span></a>
+      <a class="nav-link" href="#tasks">☑ <span>My Tasks</span></a>
+      <a class="nav-link" href="#files">▰ <span>File Organizer</span></a>
+      <a class="nav-link" href="#daily">☼ <span>Daily Sloth Report</span></a>
+    </nav>
+    <div class="sidebar-bottom"><div class="sloth-small">🦥</div><strong>Slow down.</strong><p>Let AI handle the busywork.</p><span class="privacy-pill">● Privacy-first demo</span></div>
+  </aside>
+
+  <main id="home">
+    <header class="topbar">
+      <div><p class="eyebrow">YOUR CALMER WORKSPACE</p><h1>☀️ Good morning, friend!</h1><p class="subtitle">Your personal productivity space for a calmer, more focused day.</p></div>
+      <div class="top-actions"><span class="status"><i></i> Local demo</span><button id="themeToggle" class="theme-button" aria-label="Toggle dark mode">☾</button></div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">THE SLOW AND STEADY WAY</p><h2>Less stress.<br><span>More you.</span></h2><p>Organize your thoughts, make a plan, and tidy up your digital life — so you can focus on what really matters.</p><a class="button primary" href="#notes">Get started <b>→</b></a><small class="hero-note">✓ Your selected files stay on your device in this demo</small></div>
+      <div class="hero-illustration" aria-hidden="true"><div class="sun"></div><div class="branch"></div><div class="leaf l1"></div><div class="leaf l2"></div><div class="hero-sloth">🦥</div><span class="zzz">z Z z</span><span class="art-caption">Take it one step at a time.</span></div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><span class="stat-icon mint">✓</span><div><p>Tasks completed</p><strong id="completedCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon sand">◎</span><div><p>Tasks remaining</p><strong id="remainingCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon lilac">↗</span><div><p>Daily progress</p><strong id="progressPercent">0%</strong></div></article>
+    </section>
+
+    <div class="feature-grid">
+      <section class="panel" id="notes">
+        <div class="panel-heading"><span class="feature-icon">▤</span><div><h3>Smart Notes</h3><p>Turn messy notes into clear next steps.</p></div><span class="number">01</span></div>
+        <label for="notesInput">What's on your mind?</label>
+        <textarea id="notesInput" placeholder="Finish physics assignment tomorrow&#10;Buy groceries&#10;Revise C programming loops&#10;Submit project by Friday"></textarea>
+        <div class="actions"><button class="button primary" id="organizeBtn">✦ Organize my notes</button><button class="button quiet" id="clearBtn">Clear</button></div>
+        <div id="notesOutput" class="output hidden" aria-live="polite"></div>
+        <p class="fine-print">✳ Demo uses simple text rules, not an AI model yet.</p>
+      </section>
+
+      <section class="panel" id="tasks">
+        <div class="panel-heading"><span class="feature-icon">☑</span><div><h3>My Tasks</h3><p>Small steps make progress.</p></div><span class="number">02</span></div>
+        <form id="taskForm" class="task-form"><input id="taskInput" maxlength="180" placeholder="Add a new task..." required><button class="button primary" type="submit">+ Add</button></form>
+        <div id="taskList" class="task-list"></div>
+        <div class="progress-track"><span id="progressBar"></span></div><div class="progress-label"><span id="progressText">0 of 0 completed</span><b id="progressCaption">0%</b></div>
+      </section>
+
+      <section class="panel" id="files">
+        <div class="panel-heading"><span class="feature-icon">▰</span><div><h3>File Organizer</h3><p>Preview a tidier digital space.</p></div><span class="number">03</span></div>
+        <label class="drop-zone" id="dropZone" for="fileInput"><span class="upload-icon">↑</span><strong>Choose files to organize</strong><small>or drag and drop them here</small><span class="button outline">Browse files</span><em>Images · Documents · Media · Archives</em></label>
+        <input id="fileInput" type="file" multiple hidden>
+        <div id="fileOutput"><p class="empty">Your suggested folders will appear here.</p></div>
+        <p class="fine-print">🔒 Preview only — nothing is moved or uploaded.</p>
+      </section>
+
+      <section class="panel" id="daily">
+        <div class="panel-heading"><span class="feature-icon">☼</span><div><h3>Daily Sloth Report</h3><p>A gentle nudge for today.</p></div></div>
+        <div class="report-intro"><span>🦥</span><div><strong>Hey there!</strong><p>Here's your little daily reset.</p></div></div>
+        <div class="report-row"><span>✦</span><div><strong>What to focus on</strong><ul id="focusList"><li>Add a task to get started.</li></ul></div></div>
+        <div class="report-row"><span>◷</span><div><strong>What can wait</strong><p id="waitText">Not everything needs to happen right now.</p></div></div>
+        <div class="tip"><span>💡</span><div><strong>Sloth wisdom</strong><p>Take a breath. Pick one small task. Begin there.</p></div></div>
+        <button class="button outline wide" id="refreshReport">Refresh my report ↻</button>
+      </section>
+    </div>
+    <footer><strong>🦥 LazyMate AI</strong><span>Open-source friendly</span><span>Privacy-first by design</span><span>Built for Slow and Steady ♥</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
